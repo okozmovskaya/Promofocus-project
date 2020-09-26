@@ -5,9 +5,9 @@
 
 ## WIREFRAME
 
-![wireframe1](./wireframe1.png)  
-![wireframe2](./wireframe2.png)  
-![wireframe3](./wireframe3.png)  
+ ![wireframe1](./wireframe1.png)  
+ ![wireframe2](./wireframe2.png)  
+ ![wireframe3](./wireframe3.png)  
 
 ## 1. Initialize Application
 
