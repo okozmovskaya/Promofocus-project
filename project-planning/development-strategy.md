@@ -54,16 +54,16 @@ Add reset-timers and link it to timers.
 *Assigned to `Olga`*  
 *Developed on branch `task-manager`*
 
-### 4.1. 
+### 4.1. Add task
 > __As a user I would like be able add tasks, assign for each its own number of pomodoros and save it on screen__
 
-### 4.2. 
+### 4.2. Complete task
 > __As a user I would like be able complete a task__
 
-### 4.3. 
+### 4.3. Edit task
 > __As a user I would like be able edit an existing task__
 
-### 4.4. 
+### 4.4. Delete task
 > __As a user I would like be able delete an existing task__
 
 Add a task-manager
@@ -75,13 +75,13 @@ Add a task-manager
 *Assigned to `Olga`*  
 *Developed on branch `template-menu`*
 
-### 5.1.
+### 5.1. Finished all
 >__As a user I would like be able clear all finished tasks__
 
-### 5.2.
+### 5.2. Create template
 >__As a user I would like be able save my current tasks as a template__
 
-### 5.2.
+### 5.2. Add from template
 >__As a user I would like be able add new tasks from a template__
 
 Add a template-menu
