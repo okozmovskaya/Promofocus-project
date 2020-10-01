@@ -2,20 +2,176 @@
 <html lang='en'>
 
 <head>
-  <meta charset='utf8'>
-  <title></title>
+  <meta charset="utf-8">
+  <title>Promofocus Project</title>
 
-  <link href="./public/style.css" rel="stylesheet" />
+  <link href="./public/styles/style.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/f8746982fe.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-
   <main id='user-interface'>
-    <input id='list-name-input' />
-    <div id='lists'></div>
+    <div id="target">
+      <div class="page-container">
+        <!--header-->
+        <div class="header-container">
+            <div class="header">
+                <h1 class="title">
+                  <i class="fas fa-check-circle"></i>
+                  Promofocus
+                </h1>
+                <div class="top-menu">
+                    <button class="button-menu">
+                      <i class="fas fa-chart-line"></i>
+                      Report 
+                    </button>
+                    <button class="button-menu">
+                      <i class="fas fa-cog"></i>
+                      Setting 
+                    </button>
+                    <div class="relative">
+                      <button class="button-menu">
+                        <i class="fas fa-user"></i>
+                        Login 
+                      </button>
+                      <div class="log-in-drop hide"> <!--javascript for drop? button clicked: delete class hide-->
+                        <div class="log-in-google">
+                          <i class="fab fa-google"></i>
+                          <div>Login with Google</div> 
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+        <!--main content-->
+        <div class="content-container">
+          <div class="content">
+
+            <!--progress bar-->
+            <div class="progress-line">
+              <div id="progress-bar"></div>
+            </div>
+
+            <!--timer part-->
+            <div class="timer-container">
+              <div class="timer-box">
+                <div class="option-wrapper">
+                  <button class="timer-option">Podomoro</button> <!--option clicked: add background button, not clicked: no background button-->
+                  <button class="timer-option">Short Break</button>
+                  <button class="timer-option">Long Break</button>
+                </div>
+                <div id="timer" class="timer-style">00:00</div>
+                <button class="timer-button">START</button> <!--change to Stop when timer is on-->
+              </div>
+              <div class="timer-task hide">WORKING ON</div> <!--before typing task: hidden, when doing task: appear-->
+              <div class="timer-comment">Time to work!</div> <!--before typing task: "Time to work!", when doing task: name of the task-->
+            </div>
+
+            <!--task part-->
+            <div class="task-container">
+              <div class="task-bar">
+                <span class="task-title">Tasks</span>
+                <div class="task-menu">
+                    <button class="task-menu-btn">
+                      <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <!--task dropdown menu-->
+                    <div class="task-drop hide"> <!--javascript for drop? button clicked: delete class hide-->
+                      <div class="dropdown">
+                        <i class="fas fa-check space"></i>
+                        <div class="space">Clear finished</div>
+                      </div>
+                      <div class="dropdown">
+                        <i class="far fa-save space"></i>
+                        <div class="space">Save as template</div>
+                      </div>
+                      <div class="dropdown">
+                        <i class="fas fa-plus space"></i>
+                        <div class="space">Add from template</div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+              <!--add task-->
+              <div class="task-add"> <!--js, button task-add clicked: add class hide-->
+                <i class="fas fa-plus space"></i>
+                <div>Add Task</div>
+              </div>
+
+              <!--task list: after click save on task editor-->
+              <div class="task-list-container hide">
+                <div class="task-list">
+                    <i class="fas fa-check-circle"></i>
+                    <div id="task-name" class="name-list">nothing yet</div> <!--JAVASCRIPT-->
+                </div>
+                <div class="task-list">
+                    <div id="task-unit" class="unit-list">0/0</div> <!--JAVASCRIPT-->
+                    <button class="list-menu-btn"> <!--JAVASCRIPT???-->
+                      <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </div>
+              </div>
+
+              <!--task editor-->
+              <div class="task-editor-container hide"> <!--js, button task-add clicked: delete class hide-->
+                <div class="editor-container">
+                    <div class="editor-content">
+                      <div class="content-box">
+                        <!--important-->
+                          <input id="insert-task-name" class="task-name-style" placeholder="What are you working on?" type="text">
+                      </div>
+                      <div class="content-box">
+                          <p>Est Podomoro</p>
+                          <div class="task-unit-box">
+                            <!--important-->
+                            <input id="insert-task-unit" class="task-unit-style" type="number" min="0" step="1" value="1">
+                            <button class="task-unit-btn"><i class="fas fa-caret-up"></i></button>
+                            <button class="task-unit-btn"><i class="fas fa-caret-down"></i></button>
+                          </div>   
+                      </div>
+                      <div class="content-box">
+                        <div class="note-project-box">
+                          <button class="note-project-btn">+ Add Note</button>
+                          <button class="note-project-btn">+ Add Project</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="footer-task-container">
+                  <div></div>
+                  <div class="footer-task-btn">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="save-btn">Save</button>
+                  </div>
+                </div>
+              </div>
+
+              <!--task status-->
+              <div class="task-status-container hide">
+                <div class="task-status">
+                  <div class="status-item">Est: <span id="status-est">0</span></div>
+                  <div class="status-item">Act: <span id="status-act">0</span></div>
+                  <div class="status-item">Finish at <span id="status-time">00:00</span></div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </main>
 
+  <footer>
+    <h6>Completed by Group 1: Olga, Harun and Yana</h6> 
+  </footer>
 
   <!-- load the frontend testing & reviewing dependencies -->
   <script src='./lib/review-buttons.js' type='module'></script>
