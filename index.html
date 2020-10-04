@@ -21,7 +21,9 @@
                   <i class="fas fa-check-circle"></i>
                   Promofocus
                 </h1>
-                <div class="top-menu">
+
+                <!-- Olga: I have commented <div class="top-menu"> because we don't need to do it in that project -->
+                <!-- <div class="top-menu">
                     <button class="button-menu">
                       <i class="fas fa-chart-line"></i>
                       Report 
@@ -35,14 +37,14 @@
                         <i class="fas fa-user"></i>
                         Login 
                       </button>
-                      <div class="log-in-drop hide"> <!--javascript for drop? button clicked: delete class hide-->
-                        <div class="log-in-google">
+                      <div class="log-in-drop hide"> javascript for drop? button clicked: delete class hide -->
+                        <!-- <div class="log-in-google">
                           <i class="fab fa-google"></i>
                           <div>Login with Google</div> 
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
             </div>
         </div>
 
@@ -78,9 +80,11 @@
                     <button class="task-menu-btn">
                       <i class="fas fa-ellipsis-v"></i>
                     </button>
-                    <!--task dropdown menu-->
-                    <div class="task-drop hide"> <!--javascript for drop? button clicked: delete class hide-->
-                      <div class="dropdown">
+
+                    <!-- Olga: I will develope it later -->
+                    <!--task dropdown menu -->
+                    <!-- <div class="task-drop hide"> javascript for drop? button clicked: delete class hide -->
+                      <!-- <div class="dropdown">
                         <i class="fas fa-check space"></i>
                         <div class="space">Clear finished</div>
                       </div>
@@ -92,51 +96,54 @@
                         <i class="fas fa-plus space"></i>
                         <div class="space">Add from template</div>
                       </div>
-                    </div>
+                    </div> -->
                 </div>
               </div>
 
-              <!--add task-->
-              <div class="task-add"> <!--js, button task-add clicked: add class hide-->
+              <!--task list: after click save on task editor-->
+              <div id= "task-list-container">
+                <!-- I've commented this part if code because insert it from JavaScript, function addTaskToList() -->
+                <!-- <div class="task-list">
+                    <i class="fas fa-check-circle"></i>
+                    <div id="task-name" class="name-list">nothing yet</div>
+                </div>
+                <div class="task-list">
+                    <div id="task-unit" class="unit-list">0/0</div>
+                    <button class="list-menu-btn">
+                      <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </div> -->
+              </div>
+
+              <!--add task Button-->
+              <div id="addBtn" class="task-add"> <!--js, button task-add clicked: add class hide-->
                 <i class="fas fa-plus space"></i>
                 <div>Add Task</div>
               </div>
 
-              <!--task list: after click save on task editor-->
-              <div class="task-list-container hide">
-                <div class="task-list">
-                    <i class="fas fa-check-circle"></i>
-                    <div id="task-name" class="name-list">nothing yet</div> <!--JAVASCRIPT-->
-                </div>
-                <div class="task-list">
-                    <div id="task-unit" class="unit-list">0/0</div> <!--JAVASCRIPT-->
-                    <button class="list-menu-btn"> <!--JAVASCRIPT???-->
-                      <i class="fas fa-ellipsis-v"></i>
-                    </button>
-                </div>
-              </div>
-
               <!--task editor-->
-              <div class="task-editor-container hide"> <!--js, button task-add clicked: delete class hide-->
+              <div id="task-editor-container" class="task-editor-container hide"> <!--js, button task-add clicked: delete class hide-->
                 <div class="editor-container">
                     <div class="editor-content">
                       <div class="content-box">
-                        <!--important-->
+                        <!--INPUT TASK-->
                           <input id="insert-task-name" class="task-name-style" placeholder="What are you working on?" type="text">
                       </div>
                       <div class="content-box">
                           <p>Est Podomoro</p>
                           <div class="task-unit-box">
-                            <!--important-->
-                            <input id="insert-task-unit" class="task-unit-style" type="number" min="0" step="1" value="1">
-                            <button class="task-unit-btn"><i class="fas fa-caret-up"></i></button>
-                            <button class="task-unit-btn"><i class="fas fa-caret-down"></i></button>
+                            <!--INPUT POMODORO-->
+                            <input id="insert-task-unit" class="task-unit-style" type="number" min="0" step="1" value="1" readonly>
+                            <!-- Add onclick attr for input number -->
+                            <button type="button" class="task-unit-btn" onclick="this.previousElementSibling.stepUp()"><i class="fas fa-caret-up" onclick="this.previousElementSibling.stepUp()"></i></button>
+                            <button type="button" class="task-unit-btn" onclick="this.previousElementSibling.previousElementSibling.stepDown()"><i class="fas fa-caret-down"></i></button>
                           </div>   
                       </div>
                       <div class="content-box">
                         <div class="note-project-box">
                           <button class="note-project-btn">+ Add Note</button>
-                          <button class="note-project-btn">+ Add Project</button>
+                          <!-- Olga: We will not realize the block "Add Project" -->
+                          <!-- <button class="note-project-btn">+ Add Project</button> -->
                         </div>
                       </div>
                     </div>
@@ -144,8 +151,8 @@
                 <div class="footer-task-container">
                   <div></div>
                   <div class="footer-task-btn">
-                    <button class="cancel-btn">Cancel</button>
-                    <button class="save-btn">Save</button>
+                    <button id="cancel-btn" class="cancel-btn">Cancel</button>
+                    <button id="save-btn" class="save-btn">Save</button>
                   </div>
                 </div>
               </div>

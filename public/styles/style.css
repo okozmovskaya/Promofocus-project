@@ -336,6 +336,11 @@ p {
     margin-right: 10px;
 }
 
+/* Remove arrows from #task-unit-box */
+.task-unit-style::-webkit-inner-spin-button {
+    display: none;
+}
+
 .task-unit-btn {
     border-radius: 4px;
     border: 1px solid rgb(223, 223, 223);
@@ -431,19 +436,38 @@ p {
     color:rgb(79, 43, 45);
 }
 
+/* Add style for checked tasks */
+
+.name-list-checked {
+    color:rgb(79, 43, 45);
+    text-decoration: line-through;
+}
+
+.fa-check-circle {
+    color: rgb(240, 91, 86);
+}
+
+.fa-check-circle-checked {
+    color: rgb(171, 171, 171);
+}
+
 .list-menu-btn {
     background-color: rgb(171, 171, 171);
     border-radius: 4px;
     cursor: pointer;
     opacity: 0.9;
     box-shadow: none;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     padding: 8px;
     min-width: 30px;
     height: 30px;
     border: none;
     color: white;
-    font-size: 18px;
+    font-size: 15px;
+}
+
+.list-menu-btn:hover {
+    background-color: rgb(137, 137, 137);
 }
 
 .task-status-container {
@@ -473,4 +497,10 @@ h6 {
 
 footer {
     margin-top: 100px;
+}
+
+/* Add hide class for use it in javascript */
+
+.hide {
+    display: none;
 }
