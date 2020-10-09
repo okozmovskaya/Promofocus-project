@@ -6,7 +6,6 @@ class Task {
   constructor(currentTask, pomodoro) {
     this.currentTask = currentTask;
     this.pomodoro = pomodoro;
-    
     // this.note = note;
   }
 }
@@ -29,7 +28,7 @@ class UI {
     div.classList.add('task-list-container');
     div.innerHTML = `
       <div class="task-list">
-        <i id="check-circle" class="fas fa-check-circle"></i>
+        <span><i id="check-circle" class="fas fa-check-circle"></i></span>
         <div id="task-name" class="name-list">${task.currentTask}
         </div>
         </div>
@@ -80,17 +79,27 @@ class Store {
     localStorage.setItem('tasks', JSON.stringify(tasks))
   }
 
-  static removeTask(currentTask) {
-    
-    const tasks = Store.getTasks();
+  static removeTask(task) {
+    console.log(task);
 
-    tasks.forEach((task, index) => {
-      if(tasks.currentTask === currentTask) {
-        tasks.splice(index, 1);
-      }
-    });
+    const tasks = Store.getTasks();
+    const index = tasks.indexOf(task);
+
+    tasks.splice(index, 1);
+
     localStorage.setItem('tasks', JSON.stringify(tasks));
-  }
+
+
+
+    // if (task) {
+    //   tasks.forEach((task, index) => {
+    //     if(tasks.task === task) {
+    //       tasks.splice(index, 1);
+    //     }
+    //   });
+    //   localStorage.setItem('tasks', JSON.stringify(tasks));
+    // }
+  }   
 }
 
 // Event: Display Field to fill task after click on Add-btn
@@ -118,6 +127,7 @@ document.addEventListener('DOMContentLoaded', UI.displayTask())
 // Event: Add a Task
 
 document.getElementById('save-btn').addEventListener("click",(e) => {
+  debugger;
   // Get form values
   const currentTask = document.querySelector('#insert-task-name').value;
   const pomodoro = document.querySelector('#insert-task-unit').value;
@@ -143,21 +153,19 @@ document.getElementById('save-btn').addEventListener("click",(e) => {
 
 // Event: Add "checked" symbol when clicking on list item and vice versa
 
-// const checked = document.getElementById('check-circle');
-// checked.addEventListener('click', (event) => {
-//   if (event.target.tagName === 'i') {
-//     const task = document.getElementById('task-name');
+const checked = document.getElementById('check-circle');
+checked.addEventListener('click', (event) => {
+  if (event.target.tagName === 'i') {
+    const task = document.getElementById('task-name');
 
-//     checked.classList.add('fa-check-circle-checked');
-//     task.classList.add('name-list-checked');
-//   }
-// }, false);
+    checked.classList.add('fa-check-circle-checked');
+    task.classList.add('name-list-checked');
+  }
+}, false);
 
 // Event: Remove a Task
 document.getElementById('task-list-container').addEventListener('click', (e) => {
   // Remove task from UI
   UI.deleteTask(e.target);
-
-  // Remove book from the store
-  Store.removeTask(e.target.parentElement.parentElement.previousElementSibling.childNodes[3].value)
+  Store.removeTask(e.target);
 })
